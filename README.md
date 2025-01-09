@@ -1,11 +1,11 @@
 # Crawling financial reports
 This is one of the tasks I completed as a research assistant. There are 847,963 financial reports crawled from EDGAR.
 
-## Techniques I used
+## Techniques
 
 **Web Crawling Techniques:**
 - Utilized `requests` and `BeautifulSoup` to fetch and parse webpage content.
-- Employed Selenium to handle dynamic elements in the Chrome browser.
+- Employed `Selenium` to handle dynamic elements in the Chrome browser.
 
 **Data Processing and Formatting:**
 - Standardized file names by removing invalid characters (e.g., `/` and `,`) for easier storage.
