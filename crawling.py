@@ -13,8 +13,8 @@ from datetime import datetime
 download_dir = '10Q_with_10QA'
 os.makedirs(download_dir, exist_ok=True)
 
-df = pd.read_csv('combined_list.csv')
-combined_list = df['Items'].tolist()
+df = pd.read_csv('firm_list_for_crawl.csv')
+firm_list_for_crawl = df['Items'].tolist()
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
@@ -150,8 +150,8 @@ def crawl_chrome(page, url):
         return num_10q
 
 
-for firm_index in range(0,len(combined_list), 1):  
-    firm = combined_list[firm_index]
+for firm_index in range(0,len(firm_list_for_crawl), 1):  
+    firm = firm_list_for_crawl[firm_index]
     print(firm_index, firm)
 
     firm = firm.replace('&', '%2526').replace('/', '%252F').replace(' ', '%2520')
