@@ -17,8 +17,6 @@ os.makedirs(download_dir, exist_ok=True)
 df = pd.read_csv('combined_list.csv')
 combined_list = df['Items'].tolist()
 
-
-# 設置全域的 driver
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=options)
@@ -41,7 +39,7 @@ def crawl_chrome(page, url):
             WebDriverWait(driver, wait_time).until(
                 EC.presence_of_element_located((By.CLASS_NAME, "table"))
             )
-            break  # 如果找到了元素就跳出循環
+            break  
         except Exception as e:
             print(f"An error occurred while waiting for the page to load (Attempt {retry_count+1}/{max_retries}):", e)
             retry_count += 1
@@ -153,7 +151,6 @@ def crawl_chrome(page, url):
         return num_10q
 
 
-# 主迴圈
 for firm_index in range(5973,len(combined_list), 1):  
     firm = combined_list[firm_index]
     print(firm_index, firm)
@@ -167,5 +164,4 @@ for firm_index in range(5973,len(combined_list), 1):
         for next_page in range(2, page_goal + 1, 1):
             crawl_chrome(next_page, f'{url1}&page={next_page}')
 
-# 結束時關閉 driver
 driver.quit()
