@@ -10,7 +10,6 @@ import re
 import time
 from datetime import datetime
 
-#download_dir = 'D:'
 download_dir = '10Q_with_10QA'
 os.makedirs(download_dir, exist_ok=True)
 
@@ -151,7 +150,7 @@ def crawl_chrome(page, url):
         return num_10q
 
 
-for firm_index in range(5973,len(combined_list), 1):  
+for firm_index in range(0,len(combined_list), 1):  
     firm = combined_list[firm_index]
     print(firm_index, firm)
 
